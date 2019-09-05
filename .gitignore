@@ -1,0 +1,31 @@
+###VS2019###
+#ingnore Visual Studio enviorment
+.vs/
+
+#ingnore CoreAPI
+CoreAPI/bin
+CoreAPI/obj
+CoreAPI/logs
+
+#ingnore Entities
+Entities/bin
+Entities/obj
+
+#ingnore Filters
+Filters/bin
+Filters/obj
+
+#ingnore Log
+Log/bin
+Log/obj
+
+#ingnore MemoryCacheForToken
+MemoryCacheForToken/bin
+MemoryCacheForToken/obj
+
+#ingnore Services
+Services/bin
+Services/obj
+
+
+
