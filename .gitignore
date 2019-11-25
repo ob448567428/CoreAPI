@@ -5,7 +5,7 @@
 #ingnore CoreAPI
 CoreAPI/bin
 CoreAPI/obj
-CoreAPI/logs
+CoreAPI/Logs
 
 #ingnore Entities
 Entities/bin
