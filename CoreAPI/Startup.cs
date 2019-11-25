@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Entities;
+using Filters;
 using log4net;
 using log4net.Config;
 using log4net.Repository;
@@ -50,17 +51,24 @@ namespace CoreAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-           
+            //注入全局异常处理
+            services.AddMvc(option =>
+            {
+                option.Filters.Add(typeof(ExceptionFilterExtend));
+            });
+
+
             var connection = Configuration.GetConnectionString("ConnectionString");
             //TODO: register dbcontext
             //services.AddDbContext<EFContext>(options =>
             //    options.UseSqlServer(connection, b => b.MigrationsAssembly("CoreAPI")));
 
-            //register login service
+            //register services
             services.AddSingleton<ILoginService, LoginService>();
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            //register mvc core 2.2
 
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             //custom APi Documents
             //Install-Package Swashbuckle.AspNetCore -Version 4.0.1
             //using Swashbuckle.AspNetCore

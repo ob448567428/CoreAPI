@@ -33,9 +33,9 @@ namespace CoreAPI.Controllers
         /// <param name="str">传入参数</param>
         /// <returns></returns>
         [HttpPost]
-        [ActionFilterExtend]
         public ActionResult<string> Login([FromBody] string str)
         {
+            Convert.ToInt32("aaaa");
             _loginService.Login();
             LogHelper.Error("123123");
             LogHelper.Info("123123");
