@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Text;
 
-namespace MemoryCacheForToken
+namespace Helpers
 {
     /// <summary>
     /// token base info class

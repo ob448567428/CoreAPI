@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Filters;
-using Log;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Services.Login;
+using Utils;
 
 namespace CoreAPI.Controllers
 {
@@ -31,10 +31,9 @@ namespace CoreAPI.Controllers
         /// 获取测试
         /// </summary>
         /// <param name="str">传入参数</param>
-        /// <param name="str1">传入参数1</param>
         /// <returns></returns>
         [HttpPost]
-        //[ActionFilterExtend]
+        [ActionFilterExtend]
         public ActionResult<string> Login([FromBody] string str)
         {
             _loginService.Login();

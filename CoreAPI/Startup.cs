@@ -4,7 +4,6 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Entities;
-using Log;
 using log4net;
 using log4net.Config;
 using log4net.Repository;

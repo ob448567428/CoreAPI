@@ -1,17 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using CoreAPI.Model;
-using Microsoft.Extensions.Options;
-using Microsoft.Extensions.Caching.Memory;
-using Filters;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.Extensions.Logging;
-using log4net;
-using Log;
+using Utils;
 
 namespace CoreAPI.Controllers
 {

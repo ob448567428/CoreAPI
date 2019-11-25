@@ -11,17 +11,10 @@ CoreAPI/logs
 Entities/bin
 Entities/obj
 
-#ingnore Filters
-Filters/bin
-Filters/obj
+#ingnore Utils
+Utils/bin
+Utils/obj
 
-#ingnore Log
-Log/bin
-Log/obj
-
-#ingnore MemoryCacheForToken
-MemoryCacheForToken/bin
-MemoryCacheForToken/obj
 
 #ingnore Services
 Services/bin

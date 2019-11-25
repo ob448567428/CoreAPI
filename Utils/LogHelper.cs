@@ -1,11 +1,10 @@
 ﻿using log4net;
 using System;
 
-namespace Log
+namespace Utils
 {
-    
     public class LogHelper
-    {       
+    {
         private static ILog log = LogManager.GetLogger("", "");
         public static void Debug(string msg)
         {

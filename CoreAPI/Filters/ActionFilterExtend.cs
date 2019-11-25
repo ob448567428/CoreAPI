@@ -1,12 +1,8 @@
-﻿using MemoryCacheForToken;
+﻿using Helpers;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
-using System;
-using System.Collections.Generic;
 using System.Net;
-using System.Text;
 using System.Threading.Tasks;
-
 namespace Filters
 {
     /// <summary>
@@ -20,11 +16,11 @@ namespace Filters
         /// <param name="context"></param>
         public override void OnActionExecuting(ActionExecutingContext context)
         {
-            var headers = context.HttpContext.Response.Headers;
+            var headers = context.HttpContext.Request.Headers;
             string key = "";
-            if (headers.ContainsKey("Authorization"))
+            if (headers != null && headers.ContainsKey("Authorization"))
             {
-                key = headers["Authorization"].ToString().Split(' ')[1];
+                key = headers["Authorization"].ToString().Split(' ')[0];
             }
 
             var memoryCacheInstance = MemoryCacheSingleton.GetMemoryCacheInstance();
@@ -33,7 +29,7 @@ namespace Filters
             if (oldToken == null)
             {
                 //throw new Exception("无权限");
-                context.Result = new JsonResult(new { StatusCode = (int)HttpStatusCode.InternalServerError, IsSuccess = false, Message = "无权限" });
+                context.Result = new JsonResult(new { StatusCode = (int)HttpStatusCode.Forbidden, IsSuccess = false, Message = "无权限，访问被拒绝" });
             }
             else
             {
@@ -42,7 +38,7 @@ namespace Filters
                     TokenKey = key,
                     Info = new BaseInfo()
                 };
-                memoryCacheInstance.SetBeforeRemove(token, token.TokenKey);
+                memoryCacheInstance.RefreshMemoeyCache(token, token.TokenKey);
             }
             base.OnActionExecuting(context);
         }

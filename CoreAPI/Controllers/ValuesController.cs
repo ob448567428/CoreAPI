@@ -2,9 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using CoreAPI.Model;
 using Microsoft.AspNetCore.Mvc;
-using MemoryCacheForToken;
 using Microsoft.AspNetCore.Authorization;
 using Filters;
 

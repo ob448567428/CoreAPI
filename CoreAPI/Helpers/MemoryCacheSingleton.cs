@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace MemoryCacheForToken
+namespace Helpers
 {
     /// <summary>
     /// global singleton memory cache instance
@@ -24,6 +24,10 @@ namespace MemoryCacheForToken
         {
             _memoryCache = memoryCache;
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
 
         public static MemoryCacheSingleton GetMemoryCacheInstance()
         {
@@ -47,7 +51,7 @@ namespace MemoryCacheForToken
         /// <param name="t"></param>
         /// <param name="key"></param>
         /// <returns></returns>
-        public bool SetBeforeRemove<T>(T t, object key)
+        public bool RefreshMemoeyCache<T>(T t, object key)
         {
             try
             {
@@ -58,7 +62,7 @@ namespace MemoryCacheForToken
                 _memoryCache.Set(key, t, DateTimeOffset.Now.AddSeconds(MEMORYCACHEEXPIREDSECONDS));
                 return true;
             }
-            catch 
+            catch
             {
                 return false;
             }
