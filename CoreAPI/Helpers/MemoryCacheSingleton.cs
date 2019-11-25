@@ -113,10 +113,6 @@ namespace Helpers
         /// <summary>
         /// set token info into memory
         /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="t"></param>
-        /// <param name="key"></param>
-        /// <returns></returns>
         public bool Remove(object key)
         {
             try

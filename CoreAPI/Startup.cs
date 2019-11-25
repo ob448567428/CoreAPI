@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using CoreAPI.Filters;
 using Entities;
 using Filters;
 using log4net;
