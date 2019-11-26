@@ -1,24 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
-using CoreAPI.Filters;
-using Entities;
-using Filters;
+﻿using CoreAPI.Filters;
 using log4net;
 using log4net.Config;
 using log4net.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 using Services.Login;
+using Services.ManageUser;
 using Swashbuckle.AspNetCore.Swagger;
+using System.IO;
 
 namespace CoreAPI
 {
@@ -66,6 +58,7 @@ namespace CoreAPI
 
             //register services
             services.AddSingleton<ILoginService, LoginService>();
+            services.AddSingleton<IManageUserSevice, ManageUserSevice>();
 
             //register mvc core 2.2
 

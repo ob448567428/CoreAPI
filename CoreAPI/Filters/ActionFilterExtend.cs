@@ -6,7 +6,7 @@ using System;
 using System.Net;
 using System.Threading.Tasks;
 using Utils;
-
+using System.Linq;
 
 namespace Filters
 {
@@ -15,6 +15,10 @@ namespace Filters
     /// </summary>
     public class ActionFilterExtend : ActionFilterAttribute
     {
+        /// <summary>
+        /// 方法编码
+        /// </summary>
+        public string FunCode { get; set; } = "";
         /// <summary>
         /// run this function before controller action run
         /// </summary>
@@ -38,12 +42,20 @@ namespace Filters
             }
             else
             {
-                var token = new Token<BaseInfo>()
+                if (oldToken.Info.FunCodeList.Contains(FunCode))
                 {
-                    TokenKey = key,
-                    Info = new BaseInfo()
-                };
-                memoryCacheInstance.RefreshMemoeyCache(token, token.TokenKey);
+                    var token = new Token<BaseInfo>()
+                    {
+                        TokenKey = key,
+                        Info = oldToken.Info
+                    };
+                    memoryCacheInstance.RefreshMemoeyCache(token, token.TokenKey);
+                }
+                else
+                {
+                    context.Result = new JsonResult(new OutputModel<string> { StatusCode = (int)HttpStatusCode.Forbidden, IsSuccess = false, Message = "无权限，访问被拒绝", Data = null });
+                }
+
             }
             base.OnActionExecuting(context);
         }

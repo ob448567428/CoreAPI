@@ -37,7 +37,8 @@ namespace CoreAPI.Controllers
         /// <param name="str">传入参数</param>
         /// <returns></returns>
         [HttpPost]
-        [AllowAnonymous]
+        [ActionFilterExtend(FunCode = "001")]
+        //[AllowAnonymous]
         public ActionResult<OutputModel<string>> Login([FromBody] string str)
         {
             var input = new LoginInput();
@@ -55,9 +56,10 @@ namespace CoreAPI.Controllers
         /// <summary>
         /// 退出系统
         /// </summary>
-        /// <param name="key">传入参数</param>
+        /// <param name="key">传入参数key</param>
         /// <returns></returns>
-        [HttpGet]
+        [HttpPost]
+        [ActionFilterExtend(FunCode ="002")]
         public ActionResult<OutputModel<string>> Logout([FromQuery] string key)
         {
             var memoryCacheInstance = MemoryCacheSingleton.GetMemoryCacheInstance();

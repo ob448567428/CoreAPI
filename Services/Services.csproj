@@ -5,11 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Login\Dtos\" />
+    <ProjectReference Include="..\Entities\Entities.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Entities\Entities.csproj" />
+    <Folder Include="ManageUser\Dtos\" />
   </ItemGroup>
 
 </Project>

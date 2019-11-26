@@ -9,5 +9,6 @@ namespace Filters
     /// </summary>
     public class BaseInfo
     {
+        public List<string> FunCodeList { get; set; } = new List<string>();
     }
 }

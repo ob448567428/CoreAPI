@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Services.Login
 {
-    public interface ILoginService
+    public interface ILoginService 
     {
         Tuple<bool, UserInfoOutput> Login(LoginInput input);
     }
