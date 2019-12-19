@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 using CoreAPI.Helpers;
 using Filters;
 using Helpers;
+using IServices;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Services.Login;
-using Services.Login.Dtos;
+using Models.Dtos;
 using Utils;
 
 namespace CoreAPI.Controllers

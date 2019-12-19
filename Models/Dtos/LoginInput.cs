@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Services.Login.Dtos
+namespace Models.Dtos
 {
     public class LoginInput
     {

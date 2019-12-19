@@ -1,4 +1,5 @@
 ﻿using CoreAPI.Filters;
+using CoreAPI.Helpers;
 using log4net;
 using log4net.Config;
 using log4net.Repository;
@@ -7,7 +8,6 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Services.Login;
 using Services.ManageUser;
 using Swashbuckle.AspNetCore.Swagger;
 using System.IO;
@@ -57,8 +57,7 @@ namespace CoreAPI
             //    options.UseSqlServer(connection, b => b.MigrationsAssembly("CoreAPI")));
 
             //register services
-            services.AddSingleton<ILoginService, LoginService>();
-            services.AddSingleton<IManageUserSevice, ManageUserSevice>();
+            services.RegisterService("CoreAPI.Services");
 
             //register mvc core 2.2
 

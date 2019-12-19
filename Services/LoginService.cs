@@ -1,10 +1,11 @@
 ﻿using Entities;
-using Services.Login.Dtos;
+using IServices;
+using Models.Dtos;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Services.Login
+namespace Services
 {
     public class LoginService : ILoginService
     {
